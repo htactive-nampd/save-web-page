@@ -1,4 +1,5 @@
 module.exports = {
     
-    readPage: require("./readPage")
+    readPage: require("./readPage"),
+    saveFile: require("./savePage")
 }
