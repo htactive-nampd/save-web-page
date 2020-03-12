@@ -6,20 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/htactive-nampd/save-web-page.git"
-  },
+  "repository": {},
   "author": "nam",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/htactive-nampd/save-web-page/issues"
-  },
-  "homepage": "https://github.com/htactive-nampd/save-web-page#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
+    "cli-progress": "^3.6.0",
     "fs": "0.0.1-security",
+    "psl": "^1.7.0",
     "request": "^2.88.2",
     "request-promise": "^4.2.5"
-  }
+  },
+  "devDependencies": {}
 }
