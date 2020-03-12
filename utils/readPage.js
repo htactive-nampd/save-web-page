@@ -11,7 +11,7 @@ async function getPage(url, n) {
 
     let html = await request(url) 
 
-    parseHTML(url, html)
+    return parseHTML(url, html)
 }
 
 /* Phân tích html DOM sử dụng cheerio
