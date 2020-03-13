@@ -59,7 +59,7 @@ async function parseHTML (url, html, npage) {
 
         case "https://techtalk.vn":
         
-            block = $(".td_uid_12_5e6b03769a168_rand .td-module-thumb") 
+            block = $(".wpb_wrapper .td-block-span4 .entry-title") 
 
             urlArray = []
             limit = (npage <= block.length -1) ? npage : block.length
@@ -68,6 +68,18 @@ async function parseHTML (url, html, npage) {
                 urlArray.push(block[i].children[0].attribs.href)
 
             return urlArray
+
+        case "https://codeaholicguy.com":
+        
+            block = $("a.more-link") 
+
+            urlArray = []
+            limit = (npage <= block.length -1) ? npage : block.length
+
+            for (i=0; i < npage; ++i) 
+                urlArray.push(block[i].attribs.href)
+
+            return urlArray    
                 
     }
 }
