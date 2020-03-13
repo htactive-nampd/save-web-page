@@ -57,6 +57,18 @@ async function parseHTML (url, html, npage) {
 
             return urlArray
 
+        case "https://techtalk.vn":
+        
+            block = $(".td_uid_12_5e6b03769a168_rand .td-module-thumb") 
+
+            urlArray = []
+            limit = (npage <= block.length -1) ? npage : block.length
+
+            for (i=0; i < npage; ++i) 
+                urlArray.push(block[i].children[0].attribs.href)
+
+            return urlArray
+                
     }
 }
 
