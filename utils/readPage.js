@@ -9,8 +9,6 @@ const cheerio = require("cheerio")
  */
 async function getPage(url, npage) {
 
-    npage = npage || 5 // nếu npage không khai báo thì mặc định bằng 5
-
     let html = await request(url) 
     return parseHTML(url, html, npage)
 }

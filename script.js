@@ -1,7 +1,9 @@
 let utils = require("./utils")
 
-/* Số page cần lấy, lưu ý phải nhỏ hơn số page có trên trang chủ của web*/
-const npage = 4
+/* Số page cần lấy, lưu ý phải nhỏ hơn số page có trên trang chủ của web,
+ * giá trị mặc định là 5 
+ */
+const npage = process.argv[2] || 5 
 
 /* import links from json file */
 const fs = require("fs")
