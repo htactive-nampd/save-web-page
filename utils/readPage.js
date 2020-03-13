@@ -7,11 +7,12 @@ const cheerio = require("cheerio")
  * 
  *  @return {Array} page url
  */
-async function getPage(url, n) {
+async function getPage(url, npage) {
+
+    npage = npage || 5 // nếu npage không khai báo thì mặc định bằng 5
 
     let html = await request(url) 
-
-    return parseHTML(url, html)
+    return parseHTML(url, html, npage)
 }
 
 /* Phân tích html DOM sử dụng cheerio
@@ -20,7 +21,7 @@ async function getPage(url, n) {
  * 
  * @return {Array} page url
  */
-async function parseHTML (url, html) {
+async function parseHTML (url, html, npage) {
 
     const $ = cheerio.load(html)
 
@@ -39,7 +40,9 @@ async function parseHTML (url, html) {
             * dụng for-loop để tách href từ html tag và lưu nó vào lại urlArray.
             */
             urlArray = []
-            for (i=0; i < block.length; ++i) 
+            limit = (npage <= block.length -1) ? npage : block.length
+
+            for (i=0; i < limit; ++i) 
                 urlArray.push( "https://viblo.asia" + block[i].attribs.href)
 
             return urlArray
@@ -49,7 +52,9 @@ async function parseHTML (url, html) {
             block = $("a.top-company") 
 
             urlArray = []
-            for (i=0; i < block.length; ++i) 
+            limit = (npage <= block.length -1) ? npage : block.length
+
+            for (i=0; i < npage; ++i) 
                 urlArray.push( "https://itviec.com" + block[i].attribs.href)
 
             return urlArray

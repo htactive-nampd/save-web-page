@@ -1,8 +1,10 @@
 let utils = require("./utils")
 
-/* import libraries */
-const fs = require("fs")
+/* Số page cần lấy, lưu ý phải nhỏ hơn số page có trên trang chủ của web*/
+const npage = 4
 
+/* import links from json file */
+const fs = require("fs")
 const links = JSON.parse(fs.readFileSync("./links.json"));
 
 
@@ -13,7 +15,7 @@ let n = 0;
 
 (async function read(n){
 
-    let urlArr = await utils.readPage(links[n])
+    let urlArr = await utils.readPage(links[n], npage)
 
     /* lưu trữ page vào folder */
     utils.saveFile(urlArr, () => {
